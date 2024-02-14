@@ -7,7 +7,7 @@ const medicationSchema = new Schema({
     dosage: Number,
     form: String,
     timesPerDay: {type: Number, required: true},
-    timeOfDay: {type: [Numbers], required: true}, // array of numbers
+    timeOfDay: {type: [Number], required: true}, // array of numbers
     name: {type: String, required: true},
     nameGeneric: String,
     nameBrand: String,

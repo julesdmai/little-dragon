@@ -21,7 +21,11 @@ tokenController.authenticateToken = async (req, res, next) => {
   // Extract the token
   // The expected format of the header is 'Bearer <token>'
   const authHeader = req.headers.authorization;
+  console.log('authHeader: available')
   const token = authHeader && authHeader.split(' ')[1]; // extract the token
+  console.log('token from authHeader: available');
+
+  // Check for token
   if (token === null) return res.status(401); // If no token, unauthorized
 
   // Verifying the token
@@ -29,11 +33,11 @@ tokenController.authenticateToken = async (req, res, next) => {
     if (err) {
       return res.sendStatus(403); // if token is not valid or expired
     }
-    else {
+    else { // Token is verified, user is cleared
       req.user = user; // add user payload to request
       // testing
       console.log('token: ', token);
-      console.log('token verified, you know have access to user information');
+      console.log('token verified, you know have access to user information on req.user');
       return next();
     }
   });

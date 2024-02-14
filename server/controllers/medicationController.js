@@ -16,12 +16,10 @@ medicationController.addNewMedication = async (req, res, next) => {
   // Create medication and store into mongoDB
   try {
     const userId = req.user.id; // assuming req.user is populated from JWT token 
-    const medication = new Medication({ userId, name, timesPerDay, timeOfDay});
-    const newMedication = await medication.create({ name, timesPerDay, timeOfDay});
-    await medication.save();
+    const medication = await Medication.create({ userId, name, timesPerDay, timeOfDay});
 
-    res.locals.medication = newMedication;
-    console.log('newMedication added: ', newMedication.name, newMedication);
+    res.locals.medication = medication;
+    console.log('new medication added: ', medication.name);
 
     return next();
   }

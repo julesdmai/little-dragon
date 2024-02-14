@@ -55,6 +55,10 @@ app.post(
 )
 
 
+// Important to note: The token has been set to expire within 60 seconds.
+// The user must login, receive the token, and visit the homagepage within 60 seconds
+// If the user goes over the time, they will be forbidden to access and must re-login to obtain a new token
+
 // Protected route
 // Route '/homepage' GET
 app.get(
