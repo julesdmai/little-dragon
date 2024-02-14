@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 // Access to process.env variables
 require('dotenv').config();
+// console.log('ACCESS_TOKEN_SECRET:', process.env.ACCESS_TOKEN_SECRET);
 
 // Import controllers
 const userController = require('./controllers/userController');
@@ -35,7 +36,6 @@ app.get('/register', (req, res) => {
 app.post(
   '/register', 
   userController.createUser,
-  //   tokenController.createToken,
   (req, res) => {
     return res.status(200).redirect('/login');
 })
@@ -56,7 +56,8 @@ app.post(
 
 // Route '/homepage' GET
 // Route '/homepage' POST
-app.get('/homepage', (req, res) => {
+app.get('/homepage', tokenController.authenticateToken, (req, res) => {
+    // Can access req.user to get user details extracted from the token 
     res.send('Welcome Home');
 })
 

@@ -20,23 +20,20 @@ const tokenController = {};
 tokenController.authenticateToken = async (req, res, next) => {
   // Extract the token
   // The expected format of the header is 'Bearer <token>'
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
-
-  // Checking if the token is present
-  if (token === null) return res.status(401); // No token, unauthorized
+  const authHeader = req.headers.authorization;
+  const token = authHeader && authHeader.split(' ')[1]; // extract the token
+  if (token === null) return res.status(401); // If no token, unauthorized
 
   // Verifying the token
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
     if (err) {
-      return res.status(404);
+      return res.sendStatus(403); // if token is not valid or expired
     }
     else {
-      const userId = user.id;
+      req.user = user; // add user payload to request
+      return next();
     }
-  })
-
-    return next();
+  });
 }
 
 // Export tokenController
