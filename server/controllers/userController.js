@@ -1,5 +1,6 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const userController = {};
 
@@ -58,21 +59,27 @@ userController.verifyUser = async (req, res, next) => {
     })
 
   try {
+    // Query MongoDB
     const user = await User.findOne({ username });
-    res.locals.username = username;
 
     // Check authentication
     if (!user) {
       console.log('unable to login');
-      res.redirect('/register');
+      return res.status(401).res.redirect('/register');
     }
     else {
-      const result = await bcrypt.compare(password, user.password);
-      if (!result) {
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
         console.log('unable to login');
-        return res.direct('/register');
+        return res.status(401).res.direct('/register');
       }
-      res.locals.id = user.id;
+      // User is authenticated, create JWT
+      const payload = { id: user.id, username: user.username };
+      console.log('secret: ', process.env.ACCESS_TOKEN_SECRET);
+      
+      const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1h' });
+      res.locals.token = accessToken
+      
       console.log(`${username} has logged in`);
       return next();
     }

@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 
+// Access to process.env variables
+require('dotenv').config();
+
 // Import controllers
 const userController = require('./controllers/userController');
 const tokenController = require('./controllers/tokenController');
@@ -32,9 +35,9 @@ app.get('/register', (req, res) => {
 app.post(
   '/register', 
   userController.createUser,
-  tokenController.createToken,
+  //   tokenController.createToken,
   (req, res) => {
-    return res.status(200).redirect('/homepage');
+    return res.status(200).redirect('/login');
 })
 
 // Route '/login' GET
@@ -45,8 +48,8 @@ app.get('/login', (req, res) => {
 app.post(
   '/login',
   userController.verifyUser,
-  (req, res) => {
-    return res.status(200).redirect('/homepage');
+  (req, res) => { // status 201 created
+    return res.status(201).json({ accessToken: res.locals.token });
   }
 )
 
@@ -57,6 +60,11 @@ app.get('/homepage', (req, res) => {
     res.send('Welcome Home');
 })
 
+
+// 404 handler
+app.use('*', (req, res) => {
+    res.status(404).send('Not found');
+});
 
 // Global error handler
 app.use((err, req, res, next) => {
