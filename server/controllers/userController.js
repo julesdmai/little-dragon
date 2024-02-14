@@ -26,10 +26,11 @@ userController.createUser = async (req, res, next) => {
     });
 
 
+  // Creating user and storing into mongoDB
   try {
     const user = await User.create({ username, password });
-    res.locals.username = user.username;
-      console.log('user created: ', username);
+    res.locals.user = user;
+      console.log('user created: ', user.username);
     return next(); 
   }
 
@@ -87,5 +88,5 @@ userController.verifyUser = async (req, res, next) => {
 }
 
 
-// Export user
+// Export userController
 module.exports = userController;

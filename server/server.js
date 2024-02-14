@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 // Import controllers
 const userController = require('./controllers/userController');
+const tokenController = require('./controllers/tokenController');
 
 // Port we are currently serving
 const PORT = 3000;
@@ -31,6 +32,7 @@ app.get('/register', (req, res) => {
 app.post(
   '/register', 
   userController.createUser,
+  tokenController.createToken,
   (req, res) => {
     return res.status(200).redirect('/homepage');
 })
