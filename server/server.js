@@ -40,12 +40,19 @@ app.post(
 app.get('/login', (req, res) => {
     res.send('Logging in');
 })
+app.post(
+  '/login',
+  userController.verifyUser,
+  (req, res) => {
+    return res.status(200).redirect('/homepage');
+  }
+)
 
 
 // Route '/homepage' GET
 // Route '/homepage' POST
 app.get('/homepage', (req, res) => {
-    res.send('Homepage');
+    res.send('Welcome Home');
 })
 
 
