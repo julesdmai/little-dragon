@@ -4,6 +4,9 @@ const jwt = require('jsonwebtoken');
 
 const userController = {};
 
+// constant that determines how long the token lasts for
+const TOKEN_EXPIRATION = '60s';
+
 
 // Create user
 userController.createUser = async (req, res, next) => {
@@ -73,15 +76,25 @@ userController.verifyUser = async (req, res, next) => {
         console.log('unable to login');
         return res.status(401).res.direct('/register');
       }
+
       // User is authenticated, create JWT
       const payload = { id: user.id, username: user.username };
-      console.log('ACCESS_TOKEN_SECRET: ', process.env.ACCESS_TOKEN_SECRET);
+      console.log('ACCESS_TOKEN_SECRET used to sign and verify tokens: ', process.env.ACCESS_TOKEN_SECRET);
 
-      const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '60s' });
-      console.log('accessToken: ', accessToken);
+      const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, { expiresIn: TOKEN_EXPIRATION });
+      console.log('accessToken created: ', accessToken);
+      console.log(`accessToken expires in: `, TOKEN_EXPIRATION);
+
+      // testing with time
+      const issuedAt = new Date();
+      // convert from string to number (ex. 60s -> 60)
+      const numberTokenExpiration = parseInt(TOKEN_EXPIRATION);
+      const expiresAt = new Date(issuedAt.getTime() + numberTokenExpiration*1000); // convert to ms
+      console.log(`Token issued at: ${issuedAt.toLocaleTimeString()}`);
+      console.log(`Token expires at: ${expiresAt.toLocaleTimeString()}`);
 
       // testing
-      console.log('accessToken issued and stored on res.locals.token');
+      console.log('accessToken now stored on res.locals.token');
       res.locals.token = accessToken
       
       console.log(`${username} has logged in`);

@@ -37,9 +37,9 @@ medicationController.addNewMedication = async (req, res, next) => {
 // Get medication list for logged-in user
 medicationController.getMedicationList = async (req, res, next) => {
   try {
-    const userId = req.user.id;
+    const userId = req.user.id; // taken rom the req.user body from jwt.verify from tokenController.authenticateToken
     const medicationList = await Medication.find({ userId });
-    res.json(medications);
+    res.json(medicationList);
   }
   catch (err) {
     return next({

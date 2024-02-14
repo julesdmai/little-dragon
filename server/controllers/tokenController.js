@@ -31,12 +31,13 @@ tokenController.authenticateToken = async (req, res, next) => {
   // Verifying the token
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
     if (err) {
+      console.log('token not valid or expired');
       return res.sendStatus(403); // if token is not valid or expired
     }
     else { // Token is verified, user is cleared
       req.user = user; // add user payload to request
       // testing
-      console.log('token: ', token);
+      console.log('token verified: ', token);
       console.log('token verified, you know have access to user information on req.user');
       return next();
     }
