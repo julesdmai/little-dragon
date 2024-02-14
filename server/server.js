@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // Access to process.env variables
 require('dotenv').config();
@@ -20,6 +21,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+// Allows Express appplication to circumvent cors policy
+app.use(cors());
+
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/testdb');
 
@@ -38,7 +42,7 @@ app.post(
   '/register', 
   userController.createUser,
   (req, res) => {
-    return res.status(200).send('Successfully registered. Please continue to login.');
+    return res.status(200).json({ message: 'Successfully registered. Please continue to login.'});
 })
 
 // Route '/login' GET

@@ -42,7 +42,7 @@ export default function RegisterForm() {
     try {
       const response = await fetch('http://localhost:3000/register', {
         method: 'POST',
-        heaaders: { 
+        headers: { 
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formDataClone), // now have the formData on the req.body
