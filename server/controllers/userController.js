@@ -75,12 +75,13 @@ userController.verifyUser = async (req, res, next) => {
       }
       // User is authenticated, create JWT
       const payload = { id: user.id, username: user.username };
-      console.log('secret: ', process.env.ACCESS_TOKEN_SECRET);
+      console.log('ACCESS_TOKEN_SECRET: ', process.env.ACCESS_TOKEN_SECRET);
 
       const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1h' });
+      console.log('accessToken: ', accessToken);
 
       // testing
-      console.log('accessToken issued and stored on res.locals');
+      console.log('accessToken issued and stored on res.locals.token');
       res.locals.token = accessToken
       
       console.log(`${username} has logged in`);

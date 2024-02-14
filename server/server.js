@@ -29,10 +29,10 @@ app.get('/', (req, res) => {
 })
 
 // Route '/register' GET
-// Route '/register' POST
 app.get('/register', (req, res) => {
     res.send('Registering');
 })
+// Route '/register' POST
 app.post(
   '/register', 
   userController.createUser,
@@ -41,10 +41,10 @@ app.post(
 })
 
 // Route '/login' GET
-// Route '/login' POST
 app.get('/login', (req, res) => {
     res.send('Logging in');
 })
+// Route '/login' POST
 app.post(
   '/login',
   userController.verifyUser,
@@ -54,12 +54,19 @@ app.post(
 )
 
 
+// Protected route
 // Route '/homepage' GET
-// Route '/homepage' POST
-app.get('/homepage', tokenController.authenticateToken, (req, res) => {
-    // Can access req.user to get user details extracted from the token 
+app.get(
+  '/homepage', 
+  tokenController.authenticateToken, 
+  (req, res) => {
+  // Can access req.user to get user details extracted from the token 
+    console.log('req.user: ', req.user);
     res.send('Welcome Home');
 })
+
+// Protected route
+// Route '/homepage' POST
 
 
 // 404 handler
