@@ -11,7 +11,9 @@ const TOKEN_EXPIRATION = '60s';
 // Create user
 userController.createUser = async (req, res, next) => {
   // Destructure variables username, password, and confirmPassword
-  const { username, password, confirmPassword } = req.body;
+  console.log('req.body: ', req.body);
+  const body = JSON.parse(req.body);
+  const { username, password, confirmPassword } = body;
 
   // Edge case: Missing fields
   if (!username || !password || !confirmPassword)

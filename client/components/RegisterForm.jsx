@@ -19,7 +19,7 @@ export default function RegisterForm() {
    };
 
    // When user clicks submit
-   const handleSubmit = async () => {
+   const handleSubmit = async (e) => {
     e.preventDefault();
     // creates copy of formData
     // formDataClone = {...formData};
@@ -36,12 +36,12 @@ export default function RegisterForm() {
     // // lowercase username
     // username = username.toLowerCase();
 
-    // if (!username || !password || !confirmPassword) 
+    // if (!username || !password || !confirmPassword)  
 
     try {
       const response = await fetch('/register', {
-        method: "POST",
-        heaaders: "{ 'Content-Type': 'application/json' }",
+        method: 'POST',
+        heaaders: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData), // now have the formData on the req.body
       });
       if (!response.ok) throw new Error('Registration failed');

@@ -1,5 +1,5 @@
 import React from 'react'
-import RegisterForm from './RegisterForm';
+import RegisterForm from './RegisterForm.jsx';
 
 export default function App() {
   return (
@@ -8,4 +8,4 @@ export default function App() {
       <RegisterForm />
     </div>
   )
-}
+};
