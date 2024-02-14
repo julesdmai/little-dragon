@@ -22,8 +22,9 @@ export default function RegisterForm() {
    const handleSubmit = async (e) => {
     e.preventDefault();
     // creates copy of formData
-    // formDataClone = {...formData};
-    // const { username, password, confirmPassword } = formDataClone;
+    const formDataClone = {...formData};
+    console.log('formDataClone: ', formDataClone);
+    const { username, password, confirmPassword } = formDataClone;
 
     // // validation checks
     // if (username.length < 3)
@@ -39,13 +40,20 @@ export default function RegisterForm() {
     // if (!username || !password || !confirmPassword)  
 
     try {
-      const response = await fetch('/register', {
+      const response = await fetch('http://localhost:3000/register', {
         method: 'POST',
-        heaaders: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData), // now have the formData on the req.body
+        heaaders: { 
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formDataClone), // now have the formData on the req.body
       });
+
       if (!response.ok) throw new Error('Registration failed');
       // // Handle success (e.g., navigate to login page)
+      const result = await response.json(); // Assuming responds with JSON
+      console.log(result); // Can do something here with the data
+
+      // Redirect the user? Render a success? 
     }
     catch (err) {
       console.error(err);
