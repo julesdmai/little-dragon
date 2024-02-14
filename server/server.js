@@ -9,6 +9,7 @@ require('dotenv').config();
 // Import controllers
 const userController = require('./controllers/userController');
 const tokenController = require('./controllers/tokenController');
+const medicationController = require('./controllers/medicationController');
 
 // Port we are currently serving
 const PORT = 3000;
@@ -62,12 +63,33 @@ app.get(
   (req, res) => {
   // Can access req.user to get user details extracted from the token 
     console.log('req.user: ', req.user);
-    res.send('Welcome Home');
+    res.send('Homepage medication list');
 })
 
 // Protected route
 // Route '/homepage' POST
 
+
+// Protected route
+// Route '/medications' POST
+app.post(
+  '/medications',
+  tokenController.authenticateToken,
+  medicationController.addNewMedication,
+  (req, res) => {
+    res.status(200).send('Medication added');
+  }
+)
+
+// Route '/medications' GET
+app.get(
+  '/medications',
+  tokenController.authenticateToken,
+  medicationController.getMedicationList,
+  (req, res) => {
+    return res.send('Medications list');
+  }
+);
 
 // 404 handler
 app.use('*', (req, res) => {

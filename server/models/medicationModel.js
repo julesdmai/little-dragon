@@ -3,14 +3,14 @@ const Schema = mongoose.Schema;
 
 const medicationSchema = new Schema({
     userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    bp: String,
     dosage: Number,
     form: String,
-    // array of numbers
-    hourOfDay: {type: [Numbers], required: true}, 
+    timesPerDay: {type: Number, required: true},
+    timeOfDay: {type: [Numbers], required: true}, // array of numbers
     name: {type: String, required: true},
     nameGeneric: String,
     nameBrand: String,
-    timesPerDay: Number,
 });
 
 module.exports = mongoose.model('Medication', medicationSchema);
