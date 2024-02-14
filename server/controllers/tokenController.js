@@ -33,7 +33,6 @@ tokenController.authenticateToken = async (req, res, next) => {
       req.user = user; // add user payload to request
       // testing
       console.log('token: ', token);
-      console.log('process.env.ACCESS_TOKEN_SECRET: ', process.env.ACCESS_TOKEN_SECRET);
       console.log('token verified, you know have access to user information');
       return next();
     }

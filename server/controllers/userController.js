@@ -77,7 +77,7 @@ userController.verifyUser = async (req, res, next) => {
       const payload = { id: user.id, username: user.username };
       console.log('ACCESS_TOKEN_SECRET: ', process.env.ACCESS_TOKEN_SECRET);
 
-      const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1h' });
+      const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '60s' });
       console.log('accessToken: ', accessToken);
 
       // testing
