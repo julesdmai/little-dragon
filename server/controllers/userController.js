@@ -21,7 +21,7 @@ userController.createUser = async (req, res, next) => {
       message: { err: 'An error occured' },
     });
 
-  // Check for password and confirmPassword eequality
+  // Check for password and confirmPassword equality
   if (password !== confirmPassword)
     return next({
       log: 'Passwords do not match',
@@ -79,7 +79,7 @@ userController.verifyUser = async (req, res, next) => {
 
       // User is authenticated, create JWT
       const payload = { id: user.id, username: user.username };
-      console.log('ACCESS_TOKEN_SECRET used to sign and verify tokens: ', process.env.ACCESS_TOKEN_SECRET);
+      console.log('ACCESS_TOKEN_SECRET used to sign and verify : ', process.env.ACCESS_TOKEN_SECRET);
 
       const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, { expiresIn: TOKEN_EXPIRATION });
       console.log('accessToken created: ', accessToken);

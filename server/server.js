@@ -38,7 +38,7 @@ app.post(
   '/register', 
   userController.createUser,
   (req, res) => {
-    return res.status(200).redirect('/login');
+    return res.status(200).send('Successfully registered. Please continue to login.');
 })
 
 // Route '/login' GET
