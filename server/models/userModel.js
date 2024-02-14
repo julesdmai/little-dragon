@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bcrypt = require('bcryptjs');
-const SALT_WORK_FACTOR = 10;
+const SALT_WORK_FACTOR = 3;
 
 const userSchema = new Schema(
   { // username is a string
@@ -17,10 +17,7 @@ const userSchema = new Schema(
     },
     firstName: String,
     lastName: String,
-    email: {
-      type: String,
-      unique: true,
-    }, 
+    email: String, 
   }
 )
 

@@ -3,7 +3,6 @@ const User = require('../models/userModel');
 const userController = {};
 
 userController.createUser = async (req, res, next) => {
-  console.log(req.body);
   // Destructure variables username, password, and confirmPassword
   const { username, password, confirmPassword } = req.body;
 
