@@ -4,6 +4,7 @@ const medicationController = {};
 
 // Add new medication
 medicationController.addNewMedication = async (req, res, next) => {
+  console.log('req.body: ', req.body);
   // Check edge cases
   const { name, timesPerDay, timeOfDay } = req.body;
   console.log('req.user in medicationController.addNewMedication: ', req.user);

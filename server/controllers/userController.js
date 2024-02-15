@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const userController = {};
 
 // constant that determines how long the token lasts for
-const TOKEN_EXPIRATION = '60s';
+const TOKEN_EXPIRATION = '600s';
 
 
 // Create user

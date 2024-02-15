@@ -19,7 +19,6 @@ const tokenController = {};
 tokenController.authenticateToken = async (req, res, next) => {
   // testing
   console.log('hi');
-  console.log('res.locals.username: ', username);
 
   // Extract the token
   // The expected format of the header is 'Bearer <token>'
@@ -40,8 +39,9 @@ tokenController.authenticateToken = async (req, res, next) => {
     else { // Token is verified, user is cleared
       req.user = user; // add user payload to request
       // testing
-      console.log('token verified: ', token);
-      console.log('token verified, you know have access to user information on req.user');
+      console.log('token from tokenController.authenticateToken: available');
+      console.log('token verified you may proceed.');
+      console.log('you have access to user information on req.user');
       return next();
     }
   });
