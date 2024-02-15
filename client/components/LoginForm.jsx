@@ -1,0 +1,79 @@
+import React, {useState} from 'react';
+
+export default function LoginForm() {
+  // Initialize state
+  const [credentials, setCredentials] = useState({
+    username: '',
+    password: ''
+  })
+
+
+  // Helper functions
+  const handleChange = (e) => {
+    const targetInput = e.target;
+    setCredentials({
+      ...credentials,
+      [targetInput.name]: targetInput.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    // prevent default
+    e.preventDefault();
+
+    // create copy of state
+    const credentialsClone = {...credentials};
+    console.log('credentialsClone: ', credentialsClone);
+
+    try {
+      const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(credentialsClone),
+      });
+      console.log('response in /login: ', response);
+      
+      if (!response.ok) throw newError('Login failed');
+
+      // // Handle success (e.g., navigate to login page)
+      // Data has an accessToken property
+      // This token needs to be put on all future requests
+      const data = await response.json();
+      console.log('data: ', data);
+
+      // save the JWT onto localStorage
+      localStorage.setItem('accessToken', data.accessToken);
+      console.log(`accessToken stored to localStorage`);
+    }
+    catch (err) {
+      console.error(err);
+    }
+  };
+
+
+  // Render to page
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="username"
+        value={credentials.username}
+        onChange={handleChange}
+        placeholder="Username"
+        autoComplete="disabled"
+        required
+      />
+      <input
+        type="password"
+        name="password"
+        value={credentials.password}
+        onChange={handleChange}
+        placeholder="Password"
+        required
+      />
+      <button type="submit">Log In</button>
+    </form>
+  );
+}
