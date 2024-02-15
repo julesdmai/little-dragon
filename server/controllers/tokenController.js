@@ -17,6 +17,10 @@ const tokenController = {};
 // }
 
 tokenController.authenticateToken = async (req, res, next) => {
+  // testing
+  console.log('hi');
+  console.log('res.locals.username: ', username);
+
   // Extract the token
   // The expected format of the header is 'Bearer <token>'
   const authHeader = req.headers.authorization;

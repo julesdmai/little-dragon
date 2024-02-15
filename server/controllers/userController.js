@@ -96,7 +96,8 @@ userController.verifyUser = async (req, res, next) => {
 
       // testing
       console.log('accessToken now stored on res.locals.token');
-      res.locals.token = accessToken
+      res.locals.token = accessToken;
+      res.locals.username = username;
       
       console.log(`${username} has logged in`);
       return next();

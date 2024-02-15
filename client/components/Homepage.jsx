@@ -2,12 +2,19 @@ import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Homepage() {
+  const username = localStorage.getItem('username');
+  const greeting = capitalize(username);
+
   // Initialize state
   // Helper functions
+  function capitalize(string) {
+    if (!string) return '';
+    return string[0].toUpperCase() + string.slice(1);
+  }
   // Render to page
   return(
     <>
-      <h1>Welcome to the homepage</h1>
+      <h1>Welcome {greeting},</h1>
       <table>
         <thead>Medication Schedule</thead>
         <tr>
@@ -18,9 +25,24 @@ export default function Homepage() {
         </tr>
         <tr>
             <td>Medication 1</td>
-            <td><input type="checkbox" name="med1morning"/></td>
-            <td><input type="checkbox" name="med1afternoon"/></td>
-            <td><input type="checkbox" name="med1evening"/></td>
+            <td>
+                <label className="checkbox-container">
+                <input type="checkbox"/>
+                <span className="checkmark"></span>
+                </label>
+            </td>
+            <td>
+                <label className="checkbox-container">
+                <input type="checkbox"/>
+                <span className="checkmark"></span>
+                </label>
+            </td>
+            <td>
+                <label className="checkbox-container">
+                <input type="checkbox"/>
+                <span className="checkmark"></span>
+                </label>
+            </td>
         </tr>
         <tr>
             <td>Medication 2</td>

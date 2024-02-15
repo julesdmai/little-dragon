@@ -49,6 +49,8 @@ export default function LoginForm() {
       // save the JWT onto localStorage
       localStorage.setItem('accessToken', data.accessToken);
       console.log(`accessToken stored to localStorage`);
+      localStorage.setItem('username', data.username);
+      console.log('username stored to localStorage');
 
       navigate('/homepage');
     }
