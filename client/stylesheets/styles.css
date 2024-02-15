@@ -108,6 +108,10 @@ tr:hover {
     background-color: #716464; /* Highlight row on hover */
 }
 
+#time {
+    background: rgb(65, 63, 63);
+    border: none;
+}
 
 
 

@@ -52,7 +52,7 @@ userController.createUser = async (req, res, next) => {
 // Verify user
 userController.verifyUser = async (req, res, next) => {
   // Destructure variables for login credentials
-  const { username, password } = req.body;
+  const { username, password} = req.body;
 
   // Edge cases: Missing fields
   if (!username || !password)
