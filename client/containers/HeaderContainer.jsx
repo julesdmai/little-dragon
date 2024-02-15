@@ -9,7 +9,15 @@ export default function HeaderContainer(props) {
 
   return (
     <div className="headerContainer">
-        <h1>Hello {greeting},</h1>
+        <span><h1>Hello {greeting},</h1></span>
+        <span></span>
+        <span></span>
+        <span>
+            <button className="btnAccount">
+                Account
+            </button>
+        </span>
+        
     </div>
   );
 }

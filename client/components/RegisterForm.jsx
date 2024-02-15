@@ -69,7 +69,7 @@ export default function RegisterForm() {
   // Render to page
   // Note: the value of the input must be a variable, or it will never change
   return (
-    <>
+    <div className="entryForm">
     <h1>Register</h1>
     <form onSubmit={handleSubmit} className="form">
       <input
@@ -99,6 +99,6 @@ export default function RegisterForm() {
       />
       <button type="submit" className="btn">Register</button>
     </form>
-    </>
+    </div>
   );
 };

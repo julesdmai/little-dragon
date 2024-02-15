@@ -62,7 +62,7 @@ export default function LoginForm() {
 
   // Render to page
   return (
-    <>
+    <div className="entryForm">
     <h1>Login</h1>
     <form onSubmit={handleSubmit} className="form">
       <input
@@ -84,6 +84,6 @@ export default function LoginForm() {
       />
       <button type="submit" className="btn">Log In</button>
     </form>
-    </>
+    </div>
   );
 }
