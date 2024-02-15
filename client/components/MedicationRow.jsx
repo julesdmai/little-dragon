@@ -3,7 +3,6 @@ import React from 'react'
 export default function MedicationRow() {
   return (
     <table>
-        <thead>Medication Schedule</thead>
         <tr>
             <th></th>
             <th>Morning</th>

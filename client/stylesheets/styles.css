@@ -9,7 +9,7 @@
 
 
     --blue: #1e90ff;    
-    --white): rgba(255, 255, 255, 0.70);
+    --white: rgba(255, 255, 255, 0.70);
 
   }
 
@@ -41,8 +41,9 @@ h1 {
 h2 {
     align-self: flex-start;
     font-size: 1rem;
-    color:rgba(255, 255, 255, 0.70);
+    color: var(--white);
     box-shadow: 5px, 5px;
+    margin-left: 0.5rem;
 }
 
 .mainContainer {
@@ -57,7 +58,7 @@ h2 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--strongGreen);
+    background-color: var(--deepGreen);
     margin: 1rem;
     padding: 1rem;
     border: solid black;
@@ -66,7 +67,7 @@ h2 {
 
 .medicationContainer {
     border: solid black;
-    background-color: var(--softgreen);
+    background-color: var(--deepGreen);
     margin: 1rem;
     padding: 1rem;
     border-radius: 2rem;
@@ -118,7 +119,7 @@ h2 {
   }
 
   .btn:hover {
-    background-color: #04AA6D; /* Green */
+    background-color: var(--teal);
     color: var(--white);
   }
 
@@ -136,7 +137,7 @@ h2 {
   }
 
   .btnAccount:hover {
-    background-color: #04AA6D; /* Green */
+    background-color: var(--teal);
     color: var(--white);
   }
 
