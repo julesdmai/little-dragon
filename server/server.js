@@ -28,6 +28,10 @@ app.use(cors());
 mongoose.connect('mongodb://localhost/testdb');
 
 
+// Saerve static files from the React app build directory
+app.use(express.static(path.join(__dirname, 'build')));
+
+
 // Route '/' GET
 app.get('/', (req, res) => {
     return res.send('Hello Earth');
@@ -105,10 +109,16 @@ app.get('/logout', (req, res) => {
     return res.status(200).json({ message: 'User logged out successfully', clearToken: true });
 });
 
-// 404 handler
-app.use('*', (req, res) => {
-    return res.status(404).send('Not found');
+
+// The 'catchall handler' for any request that doesn't match the ones above, send back the index.html file
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
+
+// // 404 handler
+// app.use('*', (req, res) => {
+//     return res.status(404).send('Not found');
+// });
 
 // Global error handler
 app.use((err, req, res, next) => {

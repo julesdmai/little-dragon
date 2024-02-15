@@ -35,7 +35,7 @@ userController.createUser = async (req, res, next) => {
   try {
     const user = await User.create({ username, password });
     res.locals.user = user;
-    console.log('user created: ', user.username);
+    console.log('user created and stored in database: ', user.username);
     return next(); 
   }
 

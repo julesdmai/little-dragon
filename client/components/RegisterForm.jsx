@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function RegisterForm() {
+  let navigate = useNavigate(); // Hook for navigation
+
   // Initialize state
    const [formData, setFormData] = useState({
     username: '',
@@ -52,16 +55,16 @@ export default function RegisterForm() {
 
       // // Handle success (e.g., navigate to login page)
       const result = await response.json(); // Assuming responds with JSON
-      console.log(result); // Can do something here with the data
+      console.log('result: ', result); // Can do something here with the data
 
-      // Redirect the user? Render a success? 
+      // Redirect the user
+      navigate('/login');
     }
     catch (err) {
       console.error(err);
     }
    };
-
-
+   
 
   // Render to page
   // Note: the value of the input must be a variable, or it will never change

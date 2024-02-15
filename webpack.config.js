@@ -44,10 +44,10 @@ module.exports = {
   // Anchor the virtual index.html
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
     })
   ],
-  
+
   resolve: {
     // Enable importing JS / JSX files without specifying their extension
     extensions: ['.js', '.jsx'],
@@ -55,9 +55,10 @@ module.exports = {
 
   //   
   devServer: {
-    static: path.resolve(__dirname, './dist'),
-    compress: true,
+    static: path.resolve(__dirname, './dist'), // tells Webpack Dev Server where to serve static files from.  In this case, it's serving files from the ./dist directory, which is where your bundled files will be located after running Webpack.
+    compress: true, // enables gzip compression for everything served
     port: 8080,
     hot: true,  // enable HMR on the devServer
+    historyApiFallback: true,
   },
 }
