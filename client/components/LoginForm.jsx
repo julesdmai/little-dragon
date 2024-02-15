@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm() {
+  const navigate = useNavigate();
+
   // Initialize state
   const [credentials, setCredentials] = useState({
     username: '',
@@ -46,6 +49,8 @@ export default function LoginForm() {
       // save the JWT onto localStorage
       localStorage.setItem('accessToken', data.accessToken);
       console.log(`accessToken stored to localStorage`);
+
+      navigate('/homepage');
     }
     catch (err) {
       console.error(err);

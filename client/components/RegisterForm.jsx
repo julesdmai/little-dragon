@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function RegisterForm() {
-  let navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate(); // Hook for navigation
 
   // Initialize state
    const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ export default function RegisterForm() {
       console.error(err);
     }
    };
-   
+
 
   // Render to page
   // Note: the value of the input must be a variable, or it will never change

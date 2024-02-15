@@ -43,7 +43,7 @@ export default function App() {
       <Routes>
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
-        {/* <Route path="home" element={<HomePage />} /> */}
+        <Route path="/homepage" element={<Homepage />} />
         {/* <Route path="/" element={<div>Welcome to the app! <a href="/login">Login</a> or <a href="/register">Register</a></div>} /> */}
       </Routes>
     </Router>

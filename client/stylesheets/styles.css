@@ -2,7 +2,7 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 5rem;
+    font-size: 2rem;
 }
 
 body {
