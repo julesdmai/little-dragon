@@ -60,6 +60,8 @@ export default function LoginForm() {
 
   // Render to page
   return (
+    <>
+    <h1>Login</h1>
     <form onSubmit={handleSubmit} className="form">
       <input
         type="text"
@@ -78,7 +80,8 @@ export default function LoginForm() {
         placeholder="Password"
         required
       />
-      <button type="submit">Log In</button>
+      <button type="submit" className="btn">Log In</button>
     </form>
+    </>
   );
 }

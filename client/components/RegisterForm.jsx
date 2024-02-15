@@ -69,6 +69,8 @@ export default function RegisterForm() {
   // Render to page
   // Note: the value of the input must be a variable, or it will never change
   return (
+    <>
+    <h1>Register</h1>
     <form onSubmit={handleSubmit} className="form">
       <input
         type="text"
@@ -95,7 +97,8 @@ export default function RegisterForm() {
         placeholder="Confirm Password"
         required
       />
-      <button type="submit">Register</button>
+      <button type="submit" className="btn">Register</button>
     </form>
+    </>
   );
 };

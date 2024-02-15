@@ -8,7 +8,7 @@ export default function Homepage() {
   return(
     <>
       <h1>Welcome to the homepage</h1>
-      <button></button>
+      <button id="add_med_btn">add new medication</button>
     </>
   );
 }
