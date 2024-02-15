@@ -12,7 +12,7 @@ export default function MainContainer() {
 
   return (
     <div className="mainContainer">
-        <HeaderContainer username={username}/>
+        <HeaderContainer username={username}/> 
         <MedicationContainer />
         <AddMedicationForm />
     </div>

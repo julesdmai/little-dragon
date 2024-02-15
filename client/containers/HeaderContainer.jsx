@@ -8,6 +8,7 @@ export default function HeaderContainer(props) {
   }
 
   return (
+    <>
     <div className="headerContainer">
         <span><h1>Hello {greeting},</h1></span>
         <span></span>
@@ -17,7 +18,15 @@ export default function HeaderContainer(props) {
                 Account
             </button>
         </span>
-        
     </div>
+    <div
+      className="subHeaderContainer"
+    >
+      <span></span>
+      <span><h2>Today is February 15, 2024</h2></span>
+      <span></span>
+    </div>
+    <hr></hr>
+    </>
   );
 }

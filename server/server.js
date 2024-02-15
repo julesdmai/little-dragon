@@ -63,6 +63,11 @@ app.post(
   }
 )
 
+// Route '/tryagain'
+app.get('/tryagain', (req, res) => {
+    return res.status(200).json({});
+}) 
+
 
 // Important to note: The token has been set to expire within 60 seconds.
 // The user must login, receive the token, and visit the homagepage within 60 seconds
@@ -90,6 +95,7 @@ app.post(
   tokenController.authenticateToken,
   medicationController.addNewMedication,
   (req, res) => {
+    // Can access req.user to get user details extracted from the token 
     return res.status(200).send('Medication added');
   }
 )

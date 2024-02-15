@@ -69,13 +69,13 @@ userController.verifyUser = async (req, res, next) => {
     // Check authentication
     if (!user) {
       console.log('unable to login');
-      return res.status(401).res.redirect('/register');
+      return res.status(401).send({message: 'unable to login'});
     }
     else {
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
-        console.log('unable to login');
-        return res.status(401).res.direct('/register');
+        console.log('unable to login?!');
+        return res.status(401).send({message: 'unable to login!'});
       }
 
       // User is authenticated, create JWT
