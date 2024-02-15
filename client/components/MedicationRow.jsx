@@ -10,7 +10,7 @@ export default function MedicationRow() {
             <th>Evening</th>
         </tr>
         <tr>
-            <td>Medication 1</td>
+            <td>Amlodipine</td>
             <td>
                 <label className="checkbox-container">
                 <input type="checkbox"/>
@@ -31,13 +31,13 @@ export default function MedicationRow() {
             </td>
         </tr>
         <tr>
-            <td>Medication 2</td>
+            <td>Lisinopril</td>
             <td><input type="checkbox" name="med2morning"/></td>
             <td><input type="checkbox" name="med2afternoon"/></td>
             <td><input type="checkbox" name="med2evening"/></td>
         </tr>
         <tr>
-            <td>Medication 3</td>
+            <td>Plavix</td>
             <td><input type="checkbox" name="med3morning"/></td>
             <td><input type="checkbox" name="med3afternoon"/></td>
             <td><input type="checkbox" name="med3evening"/></td>

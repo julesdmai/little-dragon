@@ -109,8 +109,9 @@ h2 {
 
 .btn {
     background: hsl(200, 100%, 50%, 0.1);
-    border: 1px solid hsl(200, 100%, 50%);
-    color: hsl(200, 100%, 50%);
+    border: 1px solid var(--mediumgreen);
+    background-color: var(--white);
+    color: var(--teal);
     padding: 0.25em 0.5em;
     border-radius: 0.25em;
     cursor: pointer;
@@ -162,7 +163,7 @@ h2 {
   }
 
   #add_med_btn:hover {
-    background-color: #04AA6D; /* Green */
+    background-color: var(--white);
     color: var(--white);
   }
 
