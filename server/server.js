@@ -30,12 +30,12 @@ mongoose.connect('mongodb://localhost/testdb');
 
 // Route '/' GET
 app.get('/', (req, res) => {
-    res.send('Hello Earth');
+    return res.send('Hello Earth');
 })
 
 // Route '/register' GET
 app.get('/register', (req, res) => {
-    res.send('Registering');
+    return res.send('Registering');
 })
 // Route '/register' POST
 app.post(
@@ -54,6 +54,7 @@ app.post(
   '/login',
   userController.verifyUser,
   (req, res) => { // status 201 created
+    // send token to client-side in an object.acceessToken
     return res.status(201).json({ accessToken: res.locals.token });
   }
 )
@@ -71,7 +72,7 @@ app.get(
   (req, res) => {
   // Can access req.user to get user details extracted from the token 
     console.log('req.user: ', req.user);
-    res.send('Homepage medication list');
+    return res.send('Homepage medication list');
 })
 
 // Protected route
@@ -85,7 +86,7 @@ app.post(
   tokenController.authenticateToken,
   medicationController.addNewMedication,
   (req, res) => {
-    res.status(200).send('Medication added');
+    return res.status(200).send('Medication added');
   }
 )
 
@@ -99,15 +100,20 @@ app.get(
   }
 );
 
+// Route '/logout' GET
+app.get('/logout', (req, res) => {
+    return res.status(200).json({ message: 'User logged out successfully', clearToken: true });
+});
+
 // 404 handler
 app.use('*', (req, res) => {
-    res.status(404).send('Not found');
+    return res.status(404).send('Not found');
 });
 
 // Global error handler
 app.use((err, req, res, next) => {
     console.log(err);
-    res.status(500).send({ error: err });
+    return res.status(500).send({ error: err });
   });
 
 

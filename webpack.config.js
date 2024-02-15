@@ -1,4 +1,5 @@
 // Imports
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -28,15 +29,15 @@ module.exports = {
           },
         },
       },
-    //   { // CSS, SCSS configuration
-    //     test: /\.scss$/i,
-    //     exclude: /node_modules/,
-    //     use: [
-    //     'style-loader',
-    //     'css-loader',
-    //     'sass-loader',
-    //     ],
-    //   },
+      { // CSS, SCSS configuration
+        test: /\.(css|scss)$/i,
+        exclude: /node_modules/,
+        use: [
+        'style-loader',
+        'css-loader',
+        // 'sass-loader',
+        ],
+      },
     ],
   },
 
@@ -46,11 +47,17 @@ module.exports = {
       template: './src/index.html',
     })
   ],
+  
+  resolve: {
+    // Enable importing JS / JSX files without specifying their extension
+    extensions: ['.js', '.jsx'],
+  },
 
   //   
   devServer: {
     static: path.resolve(__dirname, './dist'),
     compress: true,
     port: 8080,
+    hot: true,  // enable HMR on the devServer
   },
 }

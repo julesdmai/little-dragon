@@ -55,7 +55,7 @@ export default function LoginForm() {
 
   // Render to page
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
       <input
         type="text"
         name="username"

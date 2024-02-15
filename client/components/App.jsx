@@ -2,6 +2,8 @@ import React from 'react'
 import RegisterForm from './RegisterForm.jsx';
 import LoginForm from './LoginForm.jsx';
 
+import '../stylesheets/styles.css';
+
 export default function App() {
   const handleLogout = async () => {
     try {
@@ -30,8 +32,14 @@ export default function App() {
   return (
     <div>
       Hello World
-      <RegisterForm />
-      <LoginForm />
+      <div>
+        Register
+        <RegisterForm/>
+      </div>
+      <div>
+        Login
+        <LoginForm/>
+      </div>
       <button id="logout" onClick={handleLogout}>Logout</button>
     </div>
   )

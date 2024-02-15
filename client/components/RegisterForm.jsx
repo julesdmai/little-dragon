@@ -49,7 +49,7 @@ export default function RegisterForm() {
       });
 
       if (!response.ok) throw new Error('Registration failed');
-      
+
       // // Handle success (e.g., navigate to login page)
       const result = await response.json(); // Assuming responds with JSON
       console.log(result); // Can do something here with the data
@@ -66,7 +66,7 @@ export default function RegisterForm() {
   // Render to page
   // Note: the value of the input must be a variable, or it will never change
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
       <input
         type="text"
         name="username"
