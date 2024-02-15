@@ -78,3 +78,28 @@ h1 {
   #target {
     display:flex
   }
+
+  table {
+    width: 80%; /* Set the width of the table */
+    margin: 0 auto; /* Center the table horizontally */
+    border-collapse: collapse; /* Collapse borders */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the table */
+}
+th, td {
+    padding: 10px; /* Add padding to table cells */
+    border: 1px solid #ccc; /* Light grey border */
+    text-align: left; /* Align text to the left */
+}
+th {
+    background-color: #454545; /* Light grey background */
+    font-weight: bold; /* Make header text bold */
+}
+tr:nth-child(even) {
+    background-color: #464545; /* Zebra-striping for rows */
+}
+tr:hover {
+    background-color: #716464; /* Highlight row on hover */
+}
+input[type="checkbox"] {
+    margin-top: 0; /* Align checkboxes better with text */
+}

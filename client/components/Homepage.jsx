@@ -24,15 +24,15 @@ export default function Homepage() {
         </tr>
         <tr>
             <td>Medication 2</td>
-            <td><input type="checkbox" name="med1morning"/></td>
-            <td><input type="checkbox" name="med1afternoon"/></td>
-            <td><input type="checkbox" name="med1evening"/></td>
+            <td><input type="checkbox" name="med2morning"/></td>
+            <td><input type="checkbox" name="med2afternoon"/></td>
+            <td><input type="checkbox" name="med2evening"/></td>
         </tr>
         <tr>
             <td>Medication 3</td>
-            <td><input type="checkbox" name="med1morning"/></td>
-            <td><input type="checkbox" name="med1afternoon"/></td>
-            <td><input type="checkbox" name="med1evening"/></td>
+            <td><input type="checkbox" name="med3morning"/></td>
+            <td><input type="checkbox" name="med3afternoon"/></td>
+            <td><input type="checkbox" name="med3evening"/></td>
         </tr>
       </table>
       <button id="add_med_btn">add new medication</button>
