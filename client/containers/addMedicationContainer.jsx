@@ -3,6 +3,8 @@ import AddMedicationForm from '../components/AddMedicationForm'
 
 export default function AddMedicationContainer() {
   return (
-    <AddMedicationForm />
+    <div>
+        <AddMedicationForm />
+    </div>
   )
 }

@@ -20,6 +20,28 @@ h1 {
     color:rgba(229, 221, 221, 0.915)
 }
 
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background:rgb(92, 92, 92);
+    margin: 1rem;
+    padding: 1rem;
+    border: solid black;
+}
+
+.medicationContainer {
+    border: solid black;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.addMedicationContainer {
+    border: solid black;
+    margin: 1rem;
+    padding: 1rem;
+}
+
 
 .form {
     font-size: 5rem;

@@ -3,6 +3,8 @@ import MedicationRow from '../components/MedicationRow.jsx'
 
 export default function MedicationContainer() {
   return (
-    <MedicationRow />
+    <div className="medicationContainer">
+        <MedicationRow />
+    </div>
   )
 }
