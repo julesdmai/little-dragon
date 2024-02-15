@@ -1,6 +1,8 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import RegisterForm from './RegisterForm.jsx';
 import LoginForm from './LoginForm.jsx';
+import Homepage from './Homepage.jsx'
 
 import '../stylesheets/styles.css';
 
@@ -35,19 +37,33 @@ export default function App() {
 
 
 
-  
+
   return (
-    <div>
-      Hello World
-      <div>
-        Register
-        <RegisterForm/>
-      </div>
-      <div>
-        Login
-        <LoginForm/>
-      </div>
-      <button id="logout" onClick={handleLogout}>Logout</button>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="home" element={<HomePage />} />
+        <Route path="/" element={<div>Welcome to the app! <a href="/login">Login</a> or <a href="/register">Register</a></div>} />
+      </Routes>
+    </Router>
+  );
 };
+
+
+
+
+
+// <div>
+// Hello World
+// <div>
+//   Register
+//   <RegisterForm/>
+// </div>
+// <div>
+//   Login
+//   <LoginForm/>
+// </div>
+// <button id="logout" onClick={handleLogout}>Logout</button>
+// </div>
+// )
