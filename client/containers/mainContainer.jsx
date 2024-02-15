@@ -11,7 +11,7 @@ export default function MainContainer() {
   // Render
 
   return (
-    <div>
+    <div className="mainContainer">
         <HeaderContainer username={username}/>
         <MedicationContainer />
         <AddMedicationForm />

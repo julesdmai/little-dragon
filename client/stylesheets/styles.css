@@ -6,8 +6,8 @@
 body {
     padding-left: 1rem;
     padding-right: 1rem;
-    background: rgba(56, 53, 53, 0.915);
-    color: e4e4e4;
+    background: rgba(255, 255, 255, 0.814);
+    color: white;
     margin: 0 auto;
 }
 
@@ -18,6 +18,13 @@ h1 {
     align-items: center;
     font-size: 2rem;
     color:rgba(229, 221, 221, 0.915)
+}
+
+.mainContainer {
+    border: solid black;
+    background-color: #d4f3ec70;
+    margin: 2rem;
+    padding: 1rem;
 }
 
 .headerContainer {
