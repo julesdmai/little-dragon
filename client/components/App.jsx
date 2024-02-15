@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import RegisterForm from './RegisterForm.jsx';
 import LoginForm from './LoginForm.jsx';
+import TryAgainForm from './TryAgainForm.jsx';
 import Homepage from './Homepage.jsx'
 
 import '../stylesheets/styles.css';
@@ -43,6 +44,7 @@ export default function App() {
       <Routes>
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/tryagain" element={<TryAgainForm />} />
         <Route path="/homepage" element={<Homepage />} />
         {/* <Route path="/" element={<div>Welcome to the app! <a href="/login">Login</a> or <a href="/register">Register</a></div>} /> */}
       </Routes>

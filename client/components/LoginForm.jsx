@@ -38,8 +38,11 @@ export default function LoginForm() {
       });
       console.log('response in /login: ', response);
       
-      if (!response.ok) throw newError('Login failed');
+      if (response.status === 401) {
+        navigate('/tryagain');
+      }
 
+      else {
       // // Handle success (e.g., navigate to login page)
       // Data has an accessToken property
       // This token needs to be put on all future requests
@@ -53,6 +56,7 @@ export default function LoginForm() {
       console.log('username stored to localStorage');
 
       navigate('/homepage');
+      }
     }
     catch (err) {
       console.error(err);
