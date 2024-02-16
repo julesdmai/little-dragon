@@ -6,10 +6,13 @@ const medicationController = {};
 medicationController.addNewMedication = async (req, res, next) => {
   console.log('req.body: ', req.body);
   // Check edge cases
-  const { name, timesPerDay, timeOfDay } = req.body;
-  console.log('req.user in medicationController.addNewMedication: ', req.user);
+
+
+  const { name, timesPerDay, timeOfDay, userId } = req.body;
+
+  // console.log('req.user in medicationController.addNewMedication: ', req.user);
   
-  if (!name || !timesPerDay || !timeOfDay )
+  if (!name || !timesPerDay || !timeOfDay || !userId )
     return next({
       log: 'Missing name, timesPerDay, or timeOfDay',
       status: 400,

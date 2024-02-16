@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 
 export default function AddMedicationDetailsForm() {
-  localStorage.getItem('username');
+  const userId = localStorage.getItem('userId');
+  const accessToken = localStorage.getItem('accessToken');
+  console.log('accessToken from AddMedicationDetailsForm: ', accessToken);
 
   // state initialization
   const [medicationDetails, setMedicationDetails] = useState({
@@ -10,7 +12,6 @@ export default function AddMedicationDetailsForm() {
     timeOfDay: ''
   });
 
-  
 
   // helper functions
   const handleChange = (e) => {
@@ -29,7 +30,8 @@ export default function AddMedicationDetailsForm() {
       const response = await fetch('http://localhost:3000/medications', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json', 
+          'Authorization': `Bearer ${accessToken}`,
         },
         body: JSON.stringify({ ...medicationDetails, userId })
       });
