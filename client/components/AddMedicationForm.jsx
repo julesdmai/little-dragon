@@ -46,7 +46,7 @@ export default function AddMedicationDetailsForm() {
           timesPerDay: '',
           timeOfDay: ''
         })
-        navigate('/homepage');
+        // navigate('/homepage');
       }
 
     } catch (err) {
