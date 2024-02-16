@@ -52,7 +52,7 @@ userController.createUser = async (req, res, next) => {
 // Verify user
 userController.verifyUser = async (req, res, next) => {
   // Destructure variables for login credentials
-  const { username, password} = req.body;
+  const { username, password } = req.body;
 
   // Edge cases: Missing fields
   if (!username || !password)
@@ -98,6 +98,7 @@ userController.verifyUser = async (req, res, next) => {
       console.log('accessToken now stored on res.locals.token');
       res.locals.token = accessToken;
       res.locals.username = username;
+      res.locals.id = user.id;
       
       console.log(`${username} has logged in`);
       return next();

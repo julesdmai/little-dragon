@@ -1,18 +1,22 @@
 import React, {useState} from 'react'
 
-export default function AddMedicationForm() {
+export default function AddMedicationDetailsForm() {
+  localStorage.getItem('username');
+
   // state initialization
-  const [medication, setMedication] = useState({
+  const [medicationDetails, setMedicationDetails] = useState({
     name: '',
     timesPerDay: '',
     timeOfDay: ''
   });
 
+  
+
   // helper functions
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setMedication(prevState => ({
+    setMedicationDetails(prevState => ({
       ...prevState,
       [name]: value
     }));
@@ -22,16 +26,16 @@ export default function AddMedicationForm() {
     e.preventDefault();
     // add the medicaiton to the database
     try {
-      const response = await fetch('', {
+      const response = await fetch('http://localhost:3000/medications', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ...medication, userId })
+        body: JSON.stringify({ ...medicationDetails, userId })
       });
 
       if (response.ok) {
-        const newMedication = await response.json();
+        const newMedicationDetails = await response.json();
 
       }
 
@@ -43,30 +47,31 @@ export default function AddMedicationForm() {
   // render to page
   return (
     <>
-    <div className="addMedicationContainer">
-        <h2>Add Medication</h2>
+    <div className="addMedicationDetailsContainer">
+        <h2>Add MedicationDetails</h2>
         <form onSubmit={handleSubmit} className="horizontalForm">
             <input 
+              autocomplete="disabled"
               type="text"
               required
               name="name"
-              value={medication.name}
+              value={medicationDetails.name}
               onChange={handleChange}
-              placeholder="name of medication"
+              placeholder="name of medicationDetails"
             />
             <input 
               type="number"
               required
               name="timesPerDay"
-              value={medication.timesPerDay}
+              value={medicationDetails.timesPerDay}
               onChange={handleChange}
               placeholder="# per day"
             />
             <input 
-              type="number" 
+              type="text" 
               required
               name="timeOfDay"
-              value={medication.timeOfDay}
+              value={medicationDetails.timeOfDay}
               onChange={handleChange}
               placeholder="times of the day"
             />  

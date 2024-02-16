@@ -59,7 +59,7 @@ app.post(
   userController.verifyUser,
   (req, res) => { // status 201 created
     // send token to client-side in an object.acceessToken
-    return res.status(201).json({ accessToken: res.locals.token, username: res.locals.username });
+    return res.status(201).json({ accessToken: res.locals.token, username: res.locals.username, id: res.locals.id });
   }
 )
 
