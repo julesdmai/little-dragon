@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function AddMedicationDetailsForm() {
+  const navigate = useNavigate();
   const userId = localStorage.getItem('userId');
   const accessToken = localStorage.getItem('accessToken');
   console.log('accessToken from AddMedicationDetailsForm: ', accessToken);
@@ -37,8 +39,8 @@ export default function AddMedicationDetailsForm() {
       });
 
       if (response.ok) {
-        const newMedicationDetails = await response.json();
-
+        // const newMedicationDetails = await response.json();
+        navigate('/homepage');
       }
 
     } catch (err) {
