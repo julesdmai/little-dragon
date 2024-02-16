@@ -37,7 +37,7 @@ export default function MedicationContainer() {
   // Render to page
   return (
     <div className="medicationContainer">
-        <h2>Medication Schedule</h2>
+        <h1>Medications</h1>
         {medicationsList.map((medication) => (
           <MedicationRow key={medication._id} medication={medication} />
         ))}

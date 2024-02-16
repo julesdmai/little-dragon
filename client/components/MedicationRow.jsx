@@ -2,13 +2,19 @@ import React from 'react'
 
 export default function MedicationRow({ medication }) {
   return (
-    <tr>
-        <td>{medication.name}</td>
-        <td>{medication.timesPerDay} times per day</td>
-        <td>at {medication.timeOfDay} o' clock</td>
-    </tr>
-
-
+    <table>
+        <tr>
+            <td className="medicationName">{medication.name}</td>
+            <td>{medication.timesPerDay} times per day</td>
+            <td>at {medication.timeOfDay} o' clock</td>
+            <td>
+                 <label className="checkbox-container">
+                 <input type="checkbox"/>
+                 <span className="checkmark"></span>
+                 </label>
+             </td>
+        </tr>
+    </table>
 
 
 

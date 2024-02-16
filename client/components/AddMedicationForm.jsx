@@ -40,6 +40,12 @@ export default function AddMedicationDetailsForm() {
 
       if (response.ok) {
         // const newMedicationDetails = await response.json();
+        // reset input bar
+        setMedicationDetails({
+          name: '',
+          timesPerDay: '',
+          timeOfDay: ''
+        })
         navigate('/homepage');
       }
 
@@ -50,8 +56,7 @@ export default function AddMedicationDetailsForm() {
 
   // render to page
   return (
-    <>
-    <div className="addMedicationDetailsContainer">
+    <div className="addMedicationContainer">
         <h2>Add MedicationDetails</h2>
         <form onSubmit={handleSubmit} className="horizontalForm">
             <input 
@@ -83,6 +88,5 @@ export default function AddMedicationDetailsForm() {
         </form>
         {/* <button type="submit" className="btnAccount">Add</button> */}
     </div>
-    </>
   )
 }

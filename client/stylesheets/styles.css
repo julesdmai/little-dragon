@@ -51,6 +51,16 @@ hr {
     color: black;
 }
 
+input {
+  background-color: var(--softgreen);
+}
+
+.medicationName {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--white);
+}
+
 .banner {
     background-color: var(--teal);
     margin: 1rem;
@@ -98,6 +108,7 @@ hr {
 }
 
 .medicationContainer {
+
     border: solid black;
     background-color: var(--deepGreen);
     margin: 1rem;
@@ -253,7 +264,8 @@ tr:nth-child(even) {
     background-color: var(--deepGreen); 
 }
 tr:hover {
-    background-color: var(--deepGreen); /* Highlight row on hover */
+    background-color: var(--teal); /* Highlight row on hover */
+    color: var(--white);
 }
 
 #time {
