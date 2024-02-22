@@ -37,10 +37,10 @@ app.get('/', (req, res) => {
     return res.send('Hello Earth');
 })
 
-// Route '/register' GET
-app.get('/register', (req, res) => {
-    return res.send('Registering');
-})
+// // Route '/register' GET
+// app.get('/register', (req, res) => {
+//     return res.send('Registering');
+// })
 // Route '/register' POST
 app.post(
   '/register', 

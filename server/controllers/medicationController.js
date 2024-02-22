@@ -4,7 +4,7 @@ const medicationController = {};
 
 // Add new medication
 medicationController.addNewMedication = async (req, res, next) => {
-  console.log('req.body: ', req.body);
+  console.log('req.body: ', req.body); 
   // Check edge cases
 
 
@@ -43,7 +43,7 @@ medicationController.addNewMedication = async (req, res, next) => {
 // Get medication list for logged-in user
 medicationController.getMedicationList = async (req, res, next) => {
   try {
-    const userId = req.user.id; // taken rom the req.user body from jwt.verify from tokenController.authenticateToken
+    const userId = req.user.id; // taken from the req.user body from jwt.verify from tokenController.authenticateToken
     const medicationList = await Medication.find({ userId });
     res.json(medicationList);
   }

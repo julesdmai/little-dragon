@@ -2,19 +2,19 @@ const jwt = require('jsonwebtoken');
 
 const tokenController = {};
 
-// tokenController.createToken = async (req, res, next) => {
-//     const { id, username, password } = res.body.user;
+tokenController.createToken = async (req, res, next) => {
+    const { id, username, password } = res.body.user;
 
-//     // testing
-//     console.log('in tokenController.createToken for ${username}');
+    // testing
+    console.log('in tokenController.createToken for ${username}');
 
-//     const user = { id, username};
-//     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
+    const user = { id, username};
+    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
 
-//     res.json({ accessToken });
+    res.json({ accessToken });
 
-//     return next(); // is this necessary
-// }
+    return next(); // is this necessary
+}
 
 tokenController.authenticateToken = async (req, res, next) => {
   // testing
